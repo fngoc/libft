@@ -1,11 +1,13 @@
 #include <stdlib.h>	/* для printf */
 #include <stdio.h>	/* для size_t */
-#include <string.h>	/* для memset, bzero, memcpy, memccpy */
+#include <string.h>	/* для memset, bzero, memcpy, memccpy, memmove */
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n);
+void	*ft_memmove(void *destination, const void *source, size_t n);
+
 
 int main(void)
 {
@@ -27,6 +29,12 @@ int main(void)
 	
 	unsigned char src6[15] = "1234567890";
 	unsigned char dsr6[15] = "";
+	
+	unsigned char src7[15] = "1234567890";
+	unsigned char dsr7[8] = "";
+	
+	unsigned char src8[15] = "1234567890";
+	unsigned char dsr8[8] = "";
 
 	/* Работа функций */
 	memset(src1, '1', 10);
@@ -40,6 +48,9 @@ int main(void)
 
 	memccpy(dsr5, src5, '5', 10);
 	ft_memccpy(dsr6, src6, '5', 10);
+
+	memmove(dsr7,src7, 8);
+	ft_memmove(dsr8,src8, 8);
 
 	/* Вывод массивов */
 	printf("-------Работа функций--------\n");
@@ -55,6 +66,9 @@ int main(void)
 	printf("-----------------------------\n");
 	printf("memccpy dsr5: %s\n", dsr5);
 	printf("ft_memccpy dsr6: %s\n", dsr6);
+	printf("-----------------------------\n");
+	printf("memmove dsr7: %s\n", dsr7);
+	printf("ft_memmove dsr8: %s\n", dsr8);
 	printf("-----------------------------\n");
 	return (0);
 }
