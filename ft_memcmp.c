@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fngoc <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 11:25:26 by fngoc             #+#    #+#             */
+/*   Updated: 2020/10/30 11:25:39 by fngoc            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 /*
-** ft_memcmp:
+** ft_memcmp: сравнивает первые n символов
+** массивов, адресуемых параметрами s1 и s2.
 */
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
@@ -11,9 +24,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	tmp1 = s1;
 	tmp2 = s2;
-	while((*tmp1 || *tmp2) && n != 0)
+	while ((*tmp1 || *tmp2) && n != 0)
 	{
-		if(*tmp1 == *tmp2)
+		if (*tmp1 == *tmp2)
 		{
 			tmp1++;
 			tmp2++;
@@ -22,5 +35,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		else
 			return (*tmp1 - *tmp2);
 	}
-	return 0;
+	return (0);
 }

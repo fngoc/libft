@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fngoc <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 11:55:30 by fngoc             #+#    #+#             */
+/*   Updated: 2020/10/30 11:55:39 by fngoc            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 /*
@@ -14,8 +26,8 @@ int		ft_strncmp(const char *str1, const char *str2, size_t n);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int i;
-	size_t needle_len;
+	int		i;
+	size_t	needle_len;
 
 	i = 0;
 	if ((needle_len = ft_strlen(needle)) == 0)

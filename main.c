@@ -1,7 +1,7 @@
-#include <stdlib.h>	/* для printf, atoi */
+#include <stdlib.h>	/* для printf, atoi, calloc */
 #include <stdio.h>	/* для size_t */
 #include <ctype.h>	/* для isalnum, isalpha, isdigit, isascii, toupper, tolower */
-#include <string.h>	/* для memset, bzero, memcpy, memccpy, memmove, memchar, memcmp, strlen, strncmp, strnstr, strlcpy, strlcat */
+#include <string.h>	/* для memset, bzero, memcpy, memccpy, memmove, memchar, memcmp, strlen, strncmp, strnstr, strlcpy, strlcat, strdup */
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -25,6 +25,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t dsize);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(const char *s1);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 
 int main(void)
 {
@@ -66,10 +72,10 @@ int main(void)
 
 	char dsr13[15] = "111239879";
 	char src13[15] = "23";
-	
+
 	char dsr14[15] = "111239879";
 	char src14[15] = "23";
-	
+
 	char dsr15[15] = "fe";
 	char src15[15] = "f";
 
@@ -114,9 +120,9 @@ int main(void)
 
 	/* ft_strchr */
 	char *sym3;
-	sym3 = strchr(src12, '6');
+	sym3 = strchr(src12, '\0');
 	char *sym4;
-	sym4 = ft_strchr(dsr12, '6');
+	sym4 = ft_strchr(dsr12, '\0');
 
 	/* ft_isalnum */
 	int sym5;
@@ -159,43 +165,72 @@ int main(void)
 	sym17 = isprint('e');
 	int sym18;
 	sym18 = ft_isprint('e');
-	
+
 	/* ft_toupper */
 	char sym19;
 	sym19 = toupper('e');
 	char sym20;
 	sym20 = ft_toupper('e');
-	
+
 	/* ft_tolower */
 	char sym21;
 	sym21 = tolower('P');
 	char sym22;
 	sym22 = ft_tolower('P');
-	
+
+	/* ft_strrchr */
 	char *sym23;
 	sym23 = strrchr("this is a test", 'i');
 	char *sym24;
 	sym24 = ft_strrchr("this is a test", 'i');
 
+	/* ft_atoi */
 	char *src16 = "-74338";
 	int digit1 = atoi(src16);
-	
 	char *src17 = "-74338";
 	int digit2 = ft_atoi(src17);
-	
+
+	/* ft_strlcpy */
 	const char *str00 = "образец строки";
 	char buf[9] = "\0";
 	size_t t1;
 	t1 = strlcpy(buf, str00, sizeof(buf));
 	size_t t2;
 	t2 = ft_strlcpy(buf, str00, sizeof(buf));
-	
+
+	/* ft_strlcat */
 	char str01[50] = "1234";
-	char str02[50] = "56789";
+	char str02[50] = "56789ASasSs";
 	size_t t3 = strlcat(str01, str02, 9);
 	char str04[50] = "1234";
-	char str05[50] = "56789";
+	char str05[50] = "56789ASasSs";
 	size_t t4 = ft_strlcat(str04, str05, 9);
+
+	/* ft_calloc */
+	char *buf1 = calloc(3, sizeof(int));
+	char *buf2 = ft_calloc(3, sizeof(int));
+	
+	/* ft_strdup */
+	char buf3[20] = "0123456789";
+	char *istr1;
+	istr1 = strdup(buf3);
+	char buf4[20] = "0123456789";
+	char *istr2;
+	istr2 = ft_strdup(buf4);
+
+	/* ft_substr */
+	char buf6[20] = "abcdifg2424";
+	char *sub2 = ft_substr(buf6, 4 , 20);
+
+	/* ft_strjoin */
+	char buf7[20] = "abcdifg";
+	char buf8[20] = "1234567";
+	char *sub3 = ft_strjoin(buf7, buf8);
+	
+	/* ft_strtrim */
+	char buf9[20] = "2244557905";
+	char buf10[20] = "52";
+	char *sub4 = ft_strtrim(buf9, buf10);
 
 	/* Вывод массивов */
 	printf("-------Работа функций--------\n");
@@ -286,6 +321,23 @@ int main(void)
 	/* ft_strlcat */
 	printf("strlcat str01: size: %zu, str: %s\n", t3, str01);
 	printf("ft_strlcat str04: size: %zu, str: %s\n", t4, str04);
+	printf("-----------------------------\n");
+	/* ft_calloc */
+	printf("calloc buf1: %zu\n", ft_strlen(buf1));
+    printf("ft_calloc buf2: %zu\n", ft_strlen(buf2));
+	printf("-----------------------------\n");
+	/* ft_strdup */
+	printf("strdup istr1: %s\n", istr1);
+    printf("ft_strdup istr2: %s\n", istr2);
+	printf("-----------------------------\n");
+	/* ft_substr */
+    printf("ft_substr sub2: %s\n", sub2);
+	printf("-----------------------------\n");
+	/* ft_strjoin */
+    printf("ft_strjoin sub3: %s\n", sub3);
+	printf("-----------------------------\n");
+	/* ft_strtrim */
+    printf("ft_strtrim sub4: %s\n", sub4);
 	printf("-----------------------------\n");
 	return (0);
 }

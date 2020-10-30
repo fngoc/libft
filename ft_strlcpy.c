@@ -1,25 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fngoc <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 11:36:53 by fngoc             #+#    #+#             */
+/*   Updated: 2020/10/30 11:36:58 by fngoc            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 /*
-** ft_strlcpy:
+** ft_strlcpy: копирует из строки src в
+** буфер dst не более чем size - 1 символов
+** и гарантированно устанавливает в
+** конец строки нулевой символ.
 */
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char *d = dst;
-	const char *s = src;
-	size_t n = size;
-	
-	if (n != 0) {
-		while (--n != 0) {
+	char		*d;
+	const char	*s;
+	size_t		n;
+
+	n = size;
+	d = dst;
+	s = src;
+	if (n != 0)
+	{
+		while (--n != 0)
+		{
 			if ((*d++ = *s++) == '\0')
-				break;
+				break ;
 		}
 	}
-	if (n == 0) {
+	if (n == 0)
+	{
 		if (size != 0)
 			*d = '\0';
-		while (*s++);
+		while (*s++)
+			;
 	}
-	return(s - src - 1);
+	return (s - src - 1);
 }
