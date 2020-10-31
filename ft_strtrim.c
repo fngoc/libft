@@ -1,4 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fngoc <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/31 15:42:20 by fngoc             #+#    #+#             */
+/*   Updated: 2020/10/31 15:42:24 by fngoc            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+//#include "libft.h"
 
 /*
 ** ft_strtrim: Выделяет и возвращает копию
@@ -6,36 +18,59 @@
 ** в 'set' от начала и до конца строки.
 */
 
-size_t	ft_strlen(const char *s);
+/*
+** is_here: проверяет есть ли в s1 символы из s2
+*/
 
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char	*p;
-	int		i;
-	int		j;
-	int		g;
-
-	i = 0;
-	j = 0;
-	g = 0;
-	p = malloc(ft_strlen(s1) + 1);
-	if (p == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		while (set[j] != '\0')
-		{
-			if (s1[i] != set[j])
-				++j;
-			else
-			{
-				++i;
-				break ;
-			}
-		}
-		p[g++] = s1[i];
-		++i;
-		j = 0;
-	}
-	return (p);
-}
+//int		is_here(char s1[], char s2[])
+//{
+//	int i;
+//	int j;
+//
+//	i = 0;
+//	j = 0;
+//	while (s1[i] != '\0')
+//	{
+//		while (s1[i] != s2[j] && s2[j] != '\0')
+//			++j;
+//		if (s1[i] == s2[j])
+//		{
+//			return (1);
+//		}
+//		j = 0;
+//		++i;
+//	}
+//	return (0);
+//}
+//
+//char	*ft_strtrim(char const *s1, char  const *s2)
+//{
+//	int i;
+//	int j;
+//	int tmp;
+//	int tmp2;
+//
+//	i = 0;
+//	j = 0;
+//	while (s1[i] != '\0')
+//	{
+//		while (s1[i] != s2[j] && s2[j] != '\0')
+//			++j;
+//		if (s1[i] == s2[j])
+//		{
+//			tmp = i + 1;
+//			s1[i] = s1[tmp];
+//			while (s1[tmp] != '\0')
+//			{
+//				tmp2 = tmp + 1;
+//				s1[tmp++] = s1[tmp2];
+//			}
+//		}
+//		j = 0;
+//		++i;
+//	}
+//	s1[i] = '\0';
+//	if (is_here(s1, s2))
+//		ft_strtrim(s1, s2);
+//	return (s1);
+//}

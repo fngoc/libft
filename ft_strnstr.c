@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 /*
 ** ft_strnstr: ищет первое вхождение строки (за исключением
@@ -20,9 +20,6 @@
 ** нулевую длину, то функция вернет указатель
 ** на начало строки needle.
 */
-
-size_t	ft_strlen(const char *s);
-int		ft_strncmp(const char *str1, const char *str2, size_t n);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

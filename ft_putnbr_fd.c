@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fngoc <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 13:50:06 by fngoc             #+#    #+#             */
-/*   Updated: 2020/10/30 13:50:16 by fngoc            ###   ########.fr       */
+/*   Created: 2020/10/31 15:47:03 by fngoc             #+#    #+#             */
+/*   Updated: 2020/10/31 15:47:05 by fngoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** ft_calloc: выделяет блок памяти для массива
-** размером — count элементов, каждый из
-** которых занимает size байт, и инициализирует
-** все свои биты нулями.
+** ft_putnbr_fd: Выводит целое число 'n'
+** в указанный файл дескриптор.
 */
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	void	*p;
+	char	*s;
+	int		len;
+	int		i;
 
-	p = malloc(count * size);
-	if (p == NULL)
-		return (NULL);
-	ft_bzero(p, count * size);
-	return (p);
+	i = 0;
+	s = ft_itoa(n);
+	len = ft_strlen(s);
+	while (i < len)
+		write(fd, &s[i++], 1);
 }

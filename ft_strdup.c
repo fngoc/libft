@@ -10,14 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 /*
 ** ft_strdup: дублирует строку, на
 ** которую указывает аргумент str.
 */
-
-size_t	ft_strlen(const char *s);
 
 char	*ft_strdup(const char *s1)
 {
