@@ -25,13 +25,15 @@
 
 void	*ft_memchr(const void *arr, int c, size_t n)
 {
-	const unsigned char	*tmp;
+	const char	*tmp;
 
 	tmp = arr;
 	while (n-- != 0)
 	{
-		if (*(++tmp) == c)
-			return ((void *)tmp);
+		if (*tmp != c)
+			tmp++;
+		else
+			return ((char *)tmp);
 	}
 	return (NULL);
 }

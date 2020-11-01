@@ -15,7 +15,7 @@
 /*
 ** ft_substr: выделяет и возвращает подстроку
 ** из строки 's'. Подстрока начинается с
-** индекса ’start’ и имеет максимальный размер "len".
+** индекса ’start’ и имеет максимальный размер 'len'.
 */
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	p = malloc(len + 1);
 	i = start;
 	j = 0;
-	if (p == NULL)
+	if (p == NULL || s == NULL)
 		return (NULL);
 	while (len-- != 0 && s[i] != '\0')
 	{

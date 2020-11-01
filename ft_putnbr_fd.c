@@ -17,15 +17,20 @@
 ** в указанный файл дескриптор.
 */
 
+void	print_symbole(long int n, int fd)
+{
+	if (n > 9)
+		print_symbole(n / 10, fd);
+	ft_putchar_fd((n % 10 + '0'), fd);
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
-	int		len;
-	int		i;
-
-	i = 0;
-	s = ft_itoa(n);
-	len = ft_strlen(s);
-	while (i < len)
-		write(fd, &s[i++], 1);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		print_symbole((long int)n * (-1), fd);
+	}
+	else
+		print_symbole((long int)n, fd);
 }

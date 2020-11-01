@@ -23,9 +23,11 @@ void	ft_putendl_fd(char *s, int fd)
 	int		i;
 	char	endl;
 
+	if (fd < 0 || s == NULL)
+		return ;
 	i = 0;
-	len = ft_strlen(s);
 	endl = '\n';
+	len = ft_strlen(s);
 	while (i < len)
 		write(fd, &s[i++], 1);
 	write(fd, &endl, 1);

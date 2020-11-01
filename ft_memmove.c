@@ -27,6 +27,8 @@ void	*ft_memmove(void *destination, const void *source, size_t n)
 
 	d = destination;
 	s = source;
+	if (destination == NULL && source == NULL)
+		return (NULL);
 	if (d < s)
 	{
 		while (n--)

@@ -24,20 +24,22 @@ int	ft_atoi(const char *str)
 	int sign;
 
 	i = 0;
-	if (!str[0])
-		return (0);
-	while (str[i] == ' '
-		|| str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f'
-		|| str[i] == '\r')
-		++i;
+	n = 0;
+	while (ft_isalpha(str[i]) || str[i] == ' '
+			|| str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\v' || str[i] == '\f'
+			|| str[i] == '\r')
+			++i;
 	sign = (str[i] == '-') ? -1 : 1;
 	if (str[i] == '+' || str[i] == '-')
-		++i;
+		i++;
 	while (ft_isdigit(str[i]))
 	{
-		n = 10 * n + (str[i] - '0');
-		++i;
+		n = 10 * n + (str[i] - '0' );
+		if ((n > 2147483647 && sign == 1) ||
+			(n < -2147483647 && sign == -1))
+			return ((sign == 1) ? -1 : 0);
+		i++;
 	}
-	return (n * sign);
+	return (sign * n);
 }

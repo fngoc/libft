@@ -31,6 +31,8 @@ char	*ft_strrchr(const char *s, int c)
 			tmp = &s[i];
 		++i;
 	}
+	if (c == '\0')
+		return (&((char *)s)[i]);
 	if (tmp != NULL)
 		return ((char *)tmp);
 	return (NULL);
