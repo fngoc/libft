@@ -20,12 +20,12 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *p;
-	size_t i;
+	char	*p;
+	size_t	i;
 
 	p = NULL;
 	i = 0;
-	if (s && f && ((char *) malloc(sizeof(char) * (ft_strlen(s)))))
+	if (s && f && (p = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
 	{
 		while (s[i])
 		{
@@ -34,6 +34,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		}
 		p[i] = '\0';
 	}
-		
 	return (p);
 }

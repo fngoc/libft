@@ -16,11 +16,27 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+typedef struct		s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
 size_t	ft_strlen(const char *s);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dsize);
+
+t_list	*ft_lstnew(void *content);
+
+t_list	*ft_lstlast(t_list *lst);
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 void	*ft_memset(void *b, int c, size_t len);
 
@@ -44,6 +60,12 @@ void	ft_putnbr_fd(int n, int fd);
 
 void	*ft_calloc(size_t count, size_t size);
 
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
 char	*ft_strchr(const char *s, int c);
 
 char	*ft_strrchr(const char *s, int c);
@@ -61,6 +83,8 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 
 char	*ft_itoa(int n);
+
+int		ft_lstsize(t_list *lst);
 
 int		ft_isalnum(int c);
 

@@ -29,6 +29,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	j = 0;
 	if (p == NULL || s == NULL)
 		return (NULL);
+	if (start >= ft_strlen(s))
+	{
+		p[0] = '\0';
+		return (p);
+	}
 	while (len-- != 0 && s[i] != '\0')
 	{
 		p[j] = s[i];
