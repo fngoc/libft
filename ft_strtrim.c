@@ -14,83 +14,39 @@
 
 /*
 ** ft_strtrim: Выделяет и возвращает копию
-** 'S1' с удаленными символами, указанными
+** 's1' с удаленными символами, указанными
 ** в 'set' от начала и до конца строки.
 */
 
-int		is_here_start(char const *s1, char const *set)
+static int	is_char(char const c, char const *str)
 {
-	int	i;
-	int	j;
+	int i;
 
 	i = 0;
-	while (s1[i] != '\0')
+	while (str[i] != '\0')
 	{
-		j = 0;
-		while (set[j] != '\0')
-		{
-			if (s1[i] == set[j])
-				break ;
-			else
-			{
-				if (set[j + 1] == '\0')
-					return (i);
-				else
-					++j;
-			}
-		}
+		if (str[i] == c)
+			return (1);
 		++i;
 	}
-	return (i);
+	return (0);
 }
 
-int		is_here_end(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	j;
-
-	i = ft_strlen(s1) - 1;
-	while (s1[i] != '\0')
-	{
-		j = 0;
-		while (set[j] != '\0')
-		{
-			if (s1[i] == set[j])
-				break ;
-			else
-			{
-				if (set[j + 1] == '\0')
-					return (i);
-				else
-					++j;
-			}
-		}
-		--i;
-	}
-	return (i);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char	*p;
-	int		start;
-	int		end;
-	int		i;
+	int start;
+	int end;
 
 	start = 0;
-	end = 0;
-	i = 0;
 	if (s1 == NULL)
 		return (NULL);
-	if (set[0] == '\0' || s1[0] == '\0')
-		return ((char *)s1);
-	start = is_here_start(s1, set);
-	end = is_here_end(s1, set);
-	if (!(p = malloc(ft_strlen(s1) + 1)))
-		return (NULL);
-	if ((size_t)start == ft_strlen(s1))
-		*p = '\0';
-	else
-		p = ft_substr(s1, start, (end - start) + 1);
-	return (p);
+	end = (int)ft_strlen(s1) - 1;
+	while (is_char(s1[end], set))
+		--end;
+	++end;
+	while (is_char(s1[start], set))
+		++start;
+	if (start == (int)ft_strlen(s1))
+		return (ft_substr("", 0, 1));
+	return (ft_substr(s1, start, end - start));
 }

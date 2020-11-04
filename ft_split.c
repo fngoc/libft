@@ -12,44 +12,25 @@
 
 #include "libft.h"
 
-/* ft_split: Выделяет и возвращает массив строк,
+/*
+** ft_split: Выделяет и возвращает массив строк,
 ** полученных путем разделения 's' с помощью
 ** символ ’c’ в качестве разделителя.
 ** Массив должен быть заканчивается указателем NULL.
 */
 
-char	*get_str(char *str, char c, int *iterator)
-{
-	char *p;
-	int flag;
+#include "libft.h"
 
-	p = NULL;
-	while (str[*iterator] != '\0')
-	{
-		if (flag && str[*iterator] == c)
-			break ;
-		if (str[*iterator] != c)
-		{
-			flag = 1;
-			*p++ = str[*iterator];
-		}
-		else
-			++(*iterator);
-	}
-	if (p != NULL)
-		return (p);
-	return (NULL);
-}
-
-int		ft_word_count(char const *s, char c)
+static int	ft_word_count(char const *s, char c)
 {
 	int	state;
 	int	word_count;
+
 	state = 0;
 	word_count = 0;
 	while (*s)
 	{
-		if(*s == c)
+		if (*s == c)
 		{
 			state = 0;
 			s++;
@@ -66,26 +47,46 @@ int		ft_word_count(char const *s, char c)
 	return (word_count);
 }
 
-char	**ft_split(char const *s, char c)
+static char	*ft_alloc_word(char const *s, char c)
 {
-	char	**p;
-	char	*gs;
-	int		tmp;
-	int		col_words;
-	int		iterator;
+	int		size;
+	char	*p;
 
-	iterator = 0;
-	tmp = 0;
-	if (s == NULL)
+	size = 0;
+	p = 0;
+	while ((s[size]) && (s[size] != c))
+		size++;
+	if (!(p = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	col_words = ft_word_count(s, c);
-	if (!(p = malloc(sizeof(char *) * col_words)))
-		return (NULL);
-	while ((gs = get_str((char *)s, c, &iterator)) != NULL)
-	{
-		while (*gs)
-			p[tmp++] = gs;
-	}
-	p[++tmp] = NULL;
+	ft_strlcpy(p, s, size + 1);
 	return (p);
+}
+
+char		**ft_split(char const *s, char c)
+{
+	int		count;
+	int		words;
+	char	**map;
+
+	count = -1;
+	if (!s)
+		return (NULL);
+	words = ft_word_count(s, c);
+	if (!(map = malloc(sizeof(char *) * (words + 1))))
+		return (NULL);
+	while (++count < words)
+	{
+		while (s[0] == c)
+			s++;
+		if (!(map[count] = ft_alloc_word(s, c)))
+		{
+			while (count > 0)
+				free(map[count--]);
+			free(map);
+			return (NULL);
+		}
+		s += ft_strlen(map[count]);
+	}
+	map[count] = NULL;
+	return (map);
 }
