@@ -201,12 +201,12 @@ int main(void)
 	char *sub3 = ft_strjoin(buf7, buf8);
 
 	/* ft_strtrim */
-//	char buf9[20] = "2244557905";
-//	char buf10[20] = "52";
-//	char *sub4 = ft_strtrim(buf9, buf10);
+	char buf9[20] = "2244557905";
+	char buf10[20] = "52";
+	char *sub4 = ft_strtrim(buf9, buf10);
 	
 	/* ft_split */
-//	char **sub5 = ft_split("Hello World I am here", ' ');
+	char **sub5 = ft_split("Hello World I am here", ' ');
 
 	/* ft_itoa */
 	char *sub6 = ft_itoa(-12354326);
@@ -316,13 +316,16 @@ int main(void)
     printf("ft_strjoin sub3: %s\n", sub3);
 	printf("-----------------------------\n");
 	/* ft_strtrim */
-//    printf("ft_strtrim sub4: %s\n", sub4);
-//	printf("-----------------------------\n");
+    printf("ft_strtrim sub4: %s\n", sub4);
+	printf("-----------------------------\n");
 	/* ft_split */
-//	int i = 0;
-//	while (sub5[i++] != NULL)
-//		printf("ft_split sub5: %s\n", sub5[i++]);
-//	printf("-----------------------------\n");
+	int i = 0;
+	while (sub5[i] != NULL)
+	{
+		printf("ft_split sub5: %s\n", sub5[i]);
+		++i;
+	}
+	printf("-----------------------------\n");
 	/* ft_itoa */
     printf("ft_itoa sub6: %s\n", sub6);
 	printf("-----------------------------\n");
