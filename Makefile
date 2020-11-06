@@ -38,15 +38,16 @@ OPTION = -c
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(FLAG) $(OPTION) $(SRC)
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 bonus: $(OBJ) $(OBJ_BONUS)
-	gcc $(FLAG) $(OPTION) $(SRC) $(SRC_BONUS)
 	ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
 	ranlib $(NAME)
+
+rebuild: $(SRC) $(SRC_BONUS)
+	gcc -c $(FLAG) $< -o $@
 
 clean:
 	rm -rf $(OBJ) $(OBJ_BONUS)
