@@ -19,8 +19,6 @@
 ** Массив должен быть заканчивается указателем NULL.
 */
 
-#include "libft.h"
-
 static int	ft_word_count(char const *s, char c)
 {
 	int	state;
