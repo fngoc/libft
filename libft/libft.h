@@ -69,6 +69,8 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
+void				ft_strclr(char *s);
+
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 char				*ft_strchr(const char *s, int c);
@@ -89,6 +91,10 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 
 char				*ft_itoa(int n);
+
+char				*ft_strcpy(char *dst, const char *src);
+
+char				*ft_strnew(unsigned int size);
 
 int					ft_lstsize(t_list *lst);
 
