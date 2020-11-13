@@ -69,7 +69,7 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
-void				ft_strclr(char *s);
+void				ft_strclr(char **s);
 
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
