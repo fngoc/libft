@@ -22,7 +22,7 @@ libft - первый проект в School 21. Задача написать ф
 
 ## Оценка
 
-![alt tag](https://downloader.disk.yandex.ru/preview/1e001158ac988ab92c9d5a617ba00b0a466f91c273f9eeee320bc94fb31776c3/5fbc457a/7iArtKYtywTNLyy5caggPY63H74-oR7NYW-6lS7Y1P1qEWSEPHQaHex1BMT0c9NAIhtvVlboXJiC-sdEN_WIbg%3D%3D?uid=0&filename=appraisal_libft.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048 "Оценка проекта libft")
+![alt tag](media/appraisal_libft.png "Оценка проекта libft")
 
 ## my_test
 
