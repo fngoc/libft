@@ -8,6 +8,8 @@ The compilation was with flags: ``gcc -Wall -Wextra -Werror``.
 
 All files pass to ``Norminette``.
 
+No memory leaks.
+
 ## Using
 
 ``make`` and ``make all`` build a library with bonuses, or recompile the modified file, also rebuilding the library.
