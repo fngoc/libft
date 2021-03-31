@@ -1,29 +1,29 @@
 # libft
 
-## Описание
+## Description
 
-Задача написать функции стандартной библиотеки C, а также некоторые другие служебные функции, которые мы будем использовать.
+My library, which repeats the functions of the C standard library, as well as some other utility functions that I will use in future projects.
 
-Компилирование было с флагами: ``gcc -Wall -Wextra -Werror``.
+The compilation was with flags: ``gcc -Wall -Wextra -Werror``.
 
-Все файлы проходят на ``Norminette``.
+All files pass to ``Norminette``.
 
-## Использование
+## Using
 
-``make`` и ``make all`` собирают библиотеку с бонусами, или перекомпилирую измененный файл, так же пересобирая библиотеку.
+``make`` and ``make all`` build a library with bonuses, or recompile the modified file, also rebuilding the library.
 
-``make bonus`` собирает библиотеку с бонусами.
+``make bonus`` collects a library with bonuses.
 
-``make re`` удаляет все ``.o`` файлы, удаляет ``libft.a``, пересобирает библиотеку с бонусами.
+``make re`` deletes all ``.o`` files, deletes ``libft.a``, rebuilds the library with bonuses.
 
-``make clean`` удаляет все ``.o`` файлы.
+``make clean`` deletes all ``.o`` files.
 
-``make fclean`` удаляет все ``.o`` файлы, так же удаляет ``libft.a``.
+``make fclean`` deletes all ``.o`` files, also deletes ``libft.a``.
 
-## Оценка
+## Evaluation
 
-![alt tag](media/appraisal_libft.png "Оценка проекта libft")
+![alt tag](media/appraisal_libft.png "Appraisal libft")
 
 ## my_test
 
-Заменяем ``Makefile``, вставляем в папку с функциями ``main.c`` прописываем ``make test`` потом ``./test``, смотрим результаты, для удобства рекомендую ``make test && ./test``. Так же не забывайте проверять все возможные найденые тесты для своей библиотеки.
+Replace the ``Makefile``, insert it into the folder with the functions ``main.c`` write ``make test`` then ``./test``, see the results, for convenience, I recommend ``make test && ./test``. Also, do not forget to check all possible tests found for your library.
