@@ -25,23 +25,31 @@ FLAG = -Wall -Werror -Wextra
 
 OPTION = -c
 
+GREEN ='\033[1;32m'
+
+WHITE ='\033[0;37m'
+
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo ${GREEN}"libft is assembled;"$(WHITE)
 
 bonus: $(OBJ) $(OBJ_BONUS) $(HEADER)
-	ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
+	@ranlib $(NAME)
+	@echo ${GREEN}"libft is assembled with bonuses."$(WHITE)
 
 %.o: %.c
-	gcc $(FLAG) $(OPTION) $< -o $@
+	@gcc $(FLAG) $(OPTION) $< -o $@
 
 clean:
-	rm -rf $(OBJ) $(OBJ_BONUS)
+	@rm -rf $(OBJ) $(OBJ_BONUS)
+	@echo $(GREEN)"All 'o' files deleted."$(WHITE)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo $(GREEN)"Everything was cleaned up along with the library."$(WHITE)
 
 re: fclean all
