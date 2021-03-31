@@ -34,12 +34,12 @@ all: $(NAME)
 $(NAME): $(OBJ) $(HEADER)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo ${GREEN}"libft is assembled;"$(WHITE)
+	@echo ${GREEN}"libft is assembled!"$(WHITE)
 
 bonus: $(OBJ) $(OBJ_BONUS) $(HEADER)
 	@ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
 	@ranlib $(NAME)
-	@echo ${GREEN}"libft is assembled with bonuses."$(WHITE)
+	@echo ${GREEN}"libft is assembled with bonuses!"$(WHITE)
 
 %.o: %.c
 	@gcc $(FLAG) $(OPTION) $< -o $@
