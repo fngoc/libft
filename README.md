@@ -22,10 +22,10 @@ No memory leaks.
 
 ``make fclean`` deletes all ``.o`` files, also deletes ``libft.a``.
 
-## Evaluation
-
-![alt tag](media/appraisal_libft.png "Appraisal libft")
-
 ## my_test
 
 Replace the ``Makefile``, insert it into the folder with the functions ``main.c`` write ``make test`` then ``./test``, see the results, for convenience, I recommend ``make test && ./test``. Also, do not forget to check all possible tests found for your library.
+
+## Evaluation
+
+![alt tag](media/appraisal_libft.png "Appraisal libft")
