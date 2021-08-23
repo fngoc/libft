@@ -3,7 +3,7 @@
 #include <ctype.h>	/* для isalnum, isalpha, isdigit, isascii, toupper, tolower */
 #include <string.h>	/* для memset, bzero, memcpy, memccpy, memmove, memchar, memcmp, strlen, strncmp, strnstr, strlcpy, strlcat, strdup */
 
-#include "libft.h" /* Библиотека с сделанными функциями  */
+#include "../src/libft.h" /* Библиотека с сделанными функциями  */
 
 int main(void)
 {
